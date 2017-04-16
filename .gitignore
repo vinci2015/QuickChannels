@@ -10,3 +10,5 @@
 outputapks
 buildsysterm
 repo
+keystore.properties
+/.idea
