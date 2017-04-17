@@ -1,19 +1,19 @@
 apply plugin: 'com.jfrog.bintray'
 apply plugin: 'maven-publish'
 
-def projectName = "QuickChannels"
+def projectName = "quick-channels"
 def mavenDesc = 'a plugin which helps you generate greate amount of channel apks in few seconds.'
-def baseUrl = 'https://github.com/yourBaseUrl'
-def siteUrl = baseUrl
-def gitUrl = "${baseUrl}/yourGitUrl"
-def issueUrl = "${baseUrl}/yourGitIssueUrl"
+def baseUrl = 'https://github.com/vinci2015'
+def siteUrl = "${baseUrl}/QuickChannels"
+def gitUrl = "${baseUrl}/QuickChannels.git"
+def issueUrl = "${baseUrl}/QuickChannels/issues"
 
 def licenseIds = ['Apache-2.0']
 def licenseNames = ['The Apache Software License, Version 2.0']
 def licenseUrls = ['http://www.apache.org/licenses/LICENSE-2.0.txt']
-def inception = '2016'
+def inception = '2017'
 
-def username = 'lizhangqu'
+def username = 'vinci2015'
 
 install {
     repositories {
@@ -25,9 +25,9 @@ install {
                 url siteUrl
 
                 // Archive
-                groupId project.group
-                artifactId archivesBaseName
-                version project.version
+                groupId 'com.github.vinci.quick-channels'
+                artifactId 'plugin'
+                version '1.0.0'
 
                 // License
                 inceptionYear inception
@@ -82,7 +82,7 @@ bintray {
         websiteUrl = siteUrl
         issueTrackerUrl = issueUrl
         vcsUrl = gitUrl
-        labels = ['gradle', 'plugin', 'time']
+        labels = ['gradle', 'plugin', 'channels']
         licenses = licenseIds
         publish = true
         publicDownloadNumbers = true

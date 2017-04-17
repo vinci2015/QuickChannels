@@ -10,3 +10,5 @@
 outputapks
 buildsysterm
 repo
+gradle.properties
+
