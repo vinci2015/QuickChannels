@@ -20,6 +20,17 @@ android {
             keyProperties.load(new FileInputStream(keyfile))
         }else{
             //put a debug keystore message here
+            keyProperties['store']= '../buildsysterm/debug.keystore'
+            keyProperties['storePass']='android'
+            keyProperties['alias']='androiddebugkey'
+            keyProperties['pass']='android'
+        }
+
+        debug{
+            storeFile file(keyProperties['store'])
+            storePassword keyProperties['storePass']
+            keyAlias keyProperties['alias']
+            keyPassword keyProperties['pass']
         }
         release{
             assert localProperties['keystore.props.file']
@@ -34,6 +45,9 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
+        }
+        debug {
+            signingConfig signingConfigs.debug
         }
     }
 }
