@@ -16,8 +16,12 @@ android {
         localProperties.load(new FileInputStream(file("../local.properties")))
         def Properties keyProperties = new Properties()
         if(localProperties['keystore.props.file']){
-            def keyfile = file(localProperties['keystore.props.file'])
-            keyProperties.load(new FileInputStream(keyfile))
+            /*def keyfile = file(localProperties['keystore.props.file'])
+            keyProperties.load(new FileInputStream(keyfile))*/
+            keyProperties['store']= '../buildsysterm/release.jks'
+            keyProperties['storePass']='123456'
+            keyProperties['alias']='key0'
+            keyProperties['pass']='123456'
         }else{
             //put a debug keystore message here
             keyProperties['store']= '../buildsysterm/debug.keystore'

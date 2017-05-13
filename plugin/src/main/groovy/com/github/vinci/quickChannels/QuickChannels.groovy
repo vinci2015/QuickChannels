@@ -26,14 +26,14 @@ public class QuickChannels implements Plugin<Project>,TaskExecutionListener {
 
     @Override
     void beforeExecute(Task task) {
-        if(task.name == 'assembleRelease'){
-            println "${task.name} start to execute"
+        if(task.path == ':app:assembleRelease'){
+            println "${task.path} start to execute"
         }
     }
 
     @Override
     void afterExecute(Task task, TaskState taskState) {
-        if(task.name == 'assembleRelease'){
+        if(task.path == ':app:assembleRelease'){
             println "${task.name} end"
             destinationPath = rootProject.channelExt.desPath
             apkPath = rootProject.channelExt.apkPath

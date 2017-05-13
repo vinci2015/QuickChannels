@@ -5,7 +5,7 @@ repositories {
     mavenCentral()
 }
 group = 'com.github.vinci.quick-channels'
-version = '1.0.0'
+version = '1.0.1'
 uploadArchives {
     repositories {
         mavenDeployer {
