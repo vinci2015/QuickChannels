@@ -9,7 +9,7 @@ import org.gradle.api.Task
 import org.gradle.api.execution.TaskExecutionListener
 import org.gradle.api.file.FileTree
 import org.gradle.api.tasks.TaskState
-
+import org.gradle.internal.impldep.org.apache.http.util.TextUtils
 
 
 public class QuickChannels implements Plugin<Project>,TaskExecutionListener {
@@ -17,6 +17,7 @@ public class QuickChannels implements Plugin<Project>,TaskExecutionListener {
     def destinationPath
     def apkPath
     def String nameFormat
+    def channelFile
     @Override
     void apply(Project project) {
         rootProject = project
@@ -38,6 +39,7 @@ public class QuickChannels implements Plugin<Project>,TaskExecutionListener {
             destinationPath = rootProject.channelExt.desPath
             apkPath = rootProject.channelExt.apkPath
             nameFormat = rootProject.channelExt.nameFormat
+            channelFile = rootProject.channelExt.channelFile
             println "destination path : $destinationPath"
             println "apk path : $apkPath"
             task.project.tasks.create('genChannelPackage'){
@@ -98,7 +100,12 @@ public class QuickChannels implements Plugin<Project>,TaskExecutionListener {
     }
 
     def getChannels() {
-        def pro = new File('channels.properties')
+        def pro
+        if (!TextUtils.isEmpty(channelFile)){
+            pro = new File(channelFile)
+        }else {
+            pro = new File('channels.properties')
+        }
         def properties = new Properties()
         pro.withInputStream { stream ->
             properties.load(stream)
@@ -117,4 +124,5 @@ public class ChannelExtension{
     def desPath = 'E:\\outputapks'
     def apkPath = ''
     def String nameFormat = ''
+    def channelFile = ""
 }
