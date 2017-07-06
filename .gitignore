@@ -10,10 +10,7 @@
 outputapks
 buildsystem
 repo
-<<<<<<< HEAD
-gradle.properties
-
-=======
 keystore.properties
 /.idea
->>>>>>> d8166e4f11cc32935fc9ebaa07321a37a988df80
+buildsystem/release.jks
+

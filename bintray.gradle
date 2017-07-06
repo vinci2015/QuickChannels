@@ -27,7 +27,7 @@ install {
                 // Archive
                 groupId 'com.github.vinci.quick-channels'
                 artifactId 'plugin'
-                version '1.0.0'
+                version '1.0.2'
 
                 // License
                 inceptionYear inception
@@ -72,8 +72,10 @@ artifacts {
 
 
 bintray {
-    user = BINTRAY_USER
-    key = BINTRAY_KEY
+    Properties properties = new Properties()
+    properties.load(file('../local.properties').newDataInputStream())
+    user = properties.getProperty('BINTRAY_USER')
+    key = properties.getProperty('BINTRAY_KEY')
     configurations = ['archives']
     pkg {
         repo = 'maven'
