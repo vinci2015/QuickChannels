@@ -8,7 +8,7 @@
 /captures
 .externalNativeBuild
 outputapks
-buildsysterm
+buildsystem
 repo
 <<<<<<< HEAD
 gradle.properties
