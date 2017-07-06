@@ -11,6 +11,6 @@ outputapks
 buildsystem
 repo
 keystore.properties
-/.idea
+.idea
 buildsystem/release.jks
 

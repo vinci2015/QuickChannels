@@ -1,9 +1,7 @@
-package com.github.vinci.quickChannels;
+package com.github.vinci.mylibrary;
 
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
 
 import java.io.IOException;
 import java.util.Enumeration;
@@ -11,10 +9,10 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
 /**
- * Created by hzhyq on 2017/3/28 0028.
+ * Created by hzhyq on 2017/7/6 0006.
  */
 
-public class InitUtil {
+public class ChannelUtils {
     public static String getChannel(Context context) {
         ApplicationInfo appinfo = context.getApplicationInfo();
         String sourceDir = appinfo.sourceDir;
@@ -51,16 +49,5 @@ public class InitUtil {
         } else {
             return "";
         }
-    }
-
-    public static String getPackageVersion(Context context) {
-        PackageManager manager = context.getPackageManager();
-        try {
-            PackageInfo info = manager.getPackageInfo(context.getPackageName(), 0);
-            return info.versionName;
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-        }
-        return "version_unknown";
     }
 }
