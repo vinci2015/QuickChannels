@@ -9,7 +9,6 @@ import org.gradle.api.Task
 import org.gradle.api.execution.TaskExecutionListener
 import org.gradle.api.file.FileTree
 import org.gradle.api.tasks.TaskState
-import org.gradle.internal.impldep.org.apache.http.util.TextUtils
 
 
 public class QuickChannels implements Plugin<Project>,TaskExecutionListener {
@@ -101,7 +100,7 @@ public class QuickChannels implements Plugin<Project>,TaskExecutionListener {
 
     def getChannels() {
         def pro
-        if (!TextUtils.isEmpty(channelFile)){
+        if (channelFile != ''){
             pro = new File(channelFile)
         }else {
             pro = new File('channels.properties')

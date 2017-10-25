@@ -1,16 +1,14 @@
 *.iml
-.gradle
 /local.properties
-/.idea/workspace.xml
-/.idea/libraries
 .DS_Store
 /build
+/.gradle
 /captures
 .externalNativeBuild
-outputapks
-buildsysterm
-repo
-keystore.properties
+/outputapks
+/mylibrary
+/repo
 /.idea
-buildsystem/release.jks
+/buildsystem
+keystore.properties
 
