@@ -1,4 +1,4 @@
-package com.github.vinci.quickChannels;
+package com.github.vinci.quickChannels
 
 import net.lingala.zip4j.core.ZipFile
 import net.lingala.zip4j.model.ZipParameters
@@ -11,11 +11,11 @@ import org.gradle.api.file.FileTree
 import org.gradle.api.tasks.TaskState
 
 
-public class QuickChannels implements Plugin<Project>,TaskExecutionListener {
-    def Project rootProject
+class QuickChannels implements Plugin<Project>,TaskExecutionListener {
+    Project rootProject
     def destinationPath
     def apkPath
-    def String nameFormat
+    String nameFormat
     def channelFile
     @Override
     void apply(Project project) {
@@ -56,9 +56,9 @@ public class QuickChannels implements Plugin<Project>,TaskExecutionListener {
     }
     def createNewPackage(name) {
         println "channel name : $name"
-        def modefiedName = formatName(name)
-        println modefiedName
-        File mfile = new File("$destinationPath\\$modefiedName")
+        def modifiedName = formatName(name)
+        println modifiedName
+        File mfile = new File("$destinationPath\\$modifiedName")
         if(mfile.exists()){
             println "exist"
             println mfile.delete()
@@ -80,7 +80,7 @@ public class QuickChannels implements Plugin<Project>,TaskExecutionListener {
             def parentPath = parent.getAbsolutePath()
             File file = new File("$parentPath\\pwchannel-$name")
             file.setText(file.name)
-            ZipFile zipFile1 = new ZipFile("$destinationPath\\$modefiedName")
+            ZipFile zipFile1 = new ZipFile("$destinationPath\\$modifiedName")
             ZipParameters zipParameters = new ZipParameters()
             zipParameters.setCompressionMethod(Zip4jConstants.COMP_DEFLATE)
             zipParameters.setCompressionLevel(Zip4jConstants.DEFLATE_LEVEL_NORMAL)
@@ -111,7 +111,8 @@ public class QuickChannels implements Plugin<Project>,TaskExecutionListener {
         }
         return properties.values()
     }
-    def read(String name){
+
+    static def read(String name){
         def result = System.console().readLine("\n $name already exist ,press yes to cover it or input no to cancle")
         return result
     }
@@ -119,9 +120,10 @@ public class QuickChannels implements Plugin<Project>,TaskExecutionListener {
         return nameFormat.replace("{channel}",channel)
     }
 }
-public class ChannelExtension{
+
+class ChannelExtension{
     def desPath = 'E:\\outputapks'
     def apkPath = ''
-    def String nameFormat = ''
+    String nameFormat = ''
     def channelFile = ""
 }
