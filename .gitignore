@@ -7,7 +7,7 @@
 .externalNativeBuild
 /outputapks
 /mylibrary
-/repo
+/repo/
 /.idea
 /buildsystem
 keystore.properties
