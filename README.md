@@ -1,6 +1,6 @@
 # QuickChannels
 a plugin which helps you generate greate amount of channel apks in few seconds.
-基于gradle的快速打包插件，hook了app:assembleRelease任务，执行该任务后将自动打渠道包。
+基于gradle的快速打包插件，监听了app:assembleRelease任务，执行该任务后将自动打渠道包。
 ##打包方案：
 1. app:asssembleRelease 生成一个签名的正式包。
 2. 解压apk包，在META-INF目录下新建一个文件，写入渠道信息
@@ -86,3 +86,11 @@ channelExt{
         }
     }
 ```
+### 5.版本更新
++ 1.0.0 
+    - 发布第一版，基本实现快速打包功能
++ 1.0.1
++ 1.0.2 
+    - 支持指定渠道列表文件
++ 1.0.3 
+    - 修复了上一版本的一个bug,该bug由```TextUtils.java```的```ClassNotFound```引起，在```org.gradle```的包下，将引起任务失败。
